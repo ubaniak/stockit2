@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  from: 1
+  to: 1
+  amount: 1.5
+  reason: MyString
+  payment: false
+  date: 2013-09-15
+
+two:
+  from: 1
+  to: 1
+  amount: 1.5
+  reason: MyString
+  payment: false
+  date: 2013-09-15
