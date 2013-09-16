@@ -6,7 +6,9 @@ class ManageController < ApplicationController
   end
 
   def stocks
-      
+      @catagories = Catagory.all
+      @catagory = Catagory.new
+      @stock = Stock.new
   end
 
   def account_transfer

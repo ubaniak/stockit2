@@ -1,6 +1,9 @@
 Stockit2::Application.routes.draw do
 
     post "account_types" => "accounts#create_account_type"
+    post "catagories" => "stock#create_catagory"
+    post "stocks" => "stock#create"
+
   get "manage_accounts" => "manage#accounts"
   get "manage_stocks" => "manage#stocks"
   get "manage_account_transfer" => "manage#account_transfer"

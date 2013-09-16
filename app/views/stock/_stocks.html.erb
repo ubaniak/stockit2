@@ -1,0 +1,22 @@
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Catagory</th>
+        <th>Qty</th>
+        <th>Cost Price</th>
+        <th>Sell Price</th>
+        <th></th>
+    </tr>
+    <% @catagories.each do |catagory| %>
+        <% catagory.stocks.each do |stock| %>
+            <tr>
+                <td><%= stock.name %></td>
+                <td><%= stock.catagory.name %></td>
+                <td><%= stock.qty %></td>
+                <td><%= stock.cost_price %></td>
+                <td><%= stock.sell_price %></td>
+                <td></td>
+            </tr>
+        <% end %>
+    <% end %>
+</table>

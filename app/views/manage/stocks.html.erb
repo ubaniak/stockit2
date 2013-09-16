@@ -1,2 +1,19 @@
-<h1>Manage#stocks</h1>
-<p>Find me in app/views/manage/stocks.html.erb</p>
+<div class="row-fluid">
+    <div class="span6">
+        <%= render "stock/catagories" %>
+    </div>
+    <div class="span6">
+        <%= render "stock/catagory_form" %>
+    </div>
+</div>
+
+<hr>
+
+<div class="row-fluid">
+    <div class="span6">
+        <%= render "stock/stock_form" %>
+    </div>
+    <div class="span6">
+        <%= render "stock/stocks" %>
+    </div>
+</div>
