@@ -1,2 +1,21 @@
-<h1>Manage#accounts</h1>
-<p>Find me in app/views/manage/accounts.html.erb</p>
+<p id="notice"><%= notice %></p>
+<div id="account_types" class="row-fluid">
+    <div class="span6">
+        <%= render "accounts/account_types" %>
+    </div>
+    <div class="span6">
+        <%= render "accounts/account_types_form" %>
+    </div>
+</div>
+
+<hr>
+
+<div id="accounts" class="row-fluid">
+    <div class="span6">
+        <%= render "accounts/account_form" %>
+    </div>
+    <div class="span6">
+        <%= render "accounts/accounts" %>
+    </div>
+</div>
+
