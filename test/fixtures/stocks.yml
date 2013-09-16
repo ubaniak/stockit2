@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  catagory_id: 1
+  qty: 1
+  cost_price: 1.5
+  sell_price: 1.5
+  min_stock: 1
+
+two:
+  name: MyString
+  catagory_id: 1
+  qty: 1
+  cost_price: 1.5
+  sell_price: 1.5
+  min_stock: 1

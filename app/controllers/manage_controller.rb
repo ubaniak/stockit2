@@ -6,6 +6,7 @@ class ManageController < ApplicationController
   end
 
   def stocks
+      
   end
 
   def account_transfer
