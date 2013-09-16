@@ -1,5 +1,11 @@
 Stockit2::Application.routes.draw do
+
+  get "manage_accounts" => "manage#accounts"
+  get "manage_stocks" => "manage#stocks"
+  get "manage_account_transfer" => "manage#account_transfer"
+  get "manage_bills" => "manage#bills"
   root "pages#home"
+
   resources :accounts
 
   # The priority is based upon order of creation: first created -> highest priority.
