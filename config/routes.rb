@@ -1,4 +1,5 @@
 Stockit2::Application.routes.draw do
+  root "pages#home"
   resources :accounts
 
   # The priority is based upon order of creation: first created -> highest priority.
