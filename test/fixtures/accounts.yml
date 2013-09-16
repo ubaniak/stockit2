@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  balance: 1.5
+  account_type_id: 1
+  default_sales: false
+  credit: false
+
+two:
+  name: MyString
+  balance: 1.5
+  account_type_id: 1
+  default_sales: false
+  credit: false
