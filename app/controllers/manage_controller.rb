@@ -18,4 +18,7 @@ class ManageController < ApplicationController
   def bills
       @bill = Bill.new
   end
+
+  def invoice
+  end
 end
