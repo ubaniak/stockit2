@@ -12,6 +12,7 @@ class ManageController < ApplicationController
   end
 
   def account_transfer
+      @account_transfer = AccountTransfer.new
   end
 
   def bills

@@ -1,2 +1,42 @@
-<h1>Manage#account_transfer</h1>
-<p>Find me in app/views/manage/account_transfer.html.erb</p>
+<%= form_for(@account_transfer) do |f| %>
+  <% if @account_transfer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@account_transfer.errors.count, "error") %> prohibited this account_transfer from being saved:</h2>
+
+      <ul>
+      <% @account_transfer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :from %><br />
+    <%= f.select :from, options_from_collection_for_select(Account.all, "id","name") %>
+  </div>
+
+  <div class="field">
+    <%= f.label :to %><br />
+    <%= f.select :to, options_from_collection_for_select(Account.all, "id","name") %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :reason %><br>
+    <%= f.text_field :reason %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :payment %><br>
+    <%= f.check_box :payment %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
