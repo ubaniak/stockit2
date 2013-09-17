@@ -23,6 +23,7 @@ Stockit2::Application.routes.draw do
   get "sales_landing" => "sales#landing"
   get "add_to_sale" => "sales#add_to_sale"
   get "remove_from_sale" => "sales#remove_from_sale"
+  get "refund" => "sales#refund"
 
 
     # Stock

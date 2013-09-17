@@ -9,6 +9,10 @@ class SalesController < ApplicationController
         redirect_to sales_landing_path, notice: "Sale Complete :)"
     end
 
+    def refund
+
+    end
+
     def add_to_sale
         stock = Stock.find(params[:id])
         transaction = SaleTransaction.find_by_stock_id_and_user_id(stock.id, current_user.id)
