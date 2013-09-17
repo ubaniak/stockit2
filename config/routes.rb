@@ -6,12 +6,15 @@ Stockit2::Application.routes.draw do
     post "stocks" => "stock#create"
     post "account_transfers" => "account_transfers#create"
     post "bills" => "bills#create"
+    post "users" => "users#create"
 
+  get "manage_users" => "manage#users"
   get "manage_invoice" => "manage#invoice"
   get "manage_accounts" => "manage#accounts"
   get "manage_stocks" => "manage#stocks"
   get "manage_account_transfer" => "manage#account_transfer"
   get "manage_bills" => "manage#bills"
+
   root "pages#home"
 
   resources :accounts

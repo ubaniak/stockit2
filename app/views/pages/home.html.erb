@@ -1,12 +1,19 @@
+<% if user_signed_in? %>
+    <% if current_user.can_admin %>
+        <ul>
+            <li><%= link_to "accounts", manage_accounts_path %></li>
+            <li><%= link_to "stock", manage_stocks_path %></li>
+            <li><%= link_to "account transfer", manage_account_transfer_path %></li>
+            <li><%= link_to "Bills", manage_bills_path %></li>
+            <li><%= link_to "invoice", manage_invoice_path %></li>
+            <li><%= link_to "Users", manage_users_path %></li>
+        </ul>
+    <% end %>
+<% end %>
 
-<ul>
-    <li><%= link_to "accounts", manage_accounts_path %></li>
-    <li><%= link_to "stock", manage_stocks_path %></li>
-    <li><%= link_to "account transfer", manage_account_transfer_path %></li>
-    <li><%= link_to "Bills", manage_bills_path %></li>
-    <li><%= link_to "invoice", manage_invoice_path %></li>
-</ul>
 
-
-<%= link_to "Sign in", new_user_session_path %>
-<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+<% if user_signed_in? %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+<% else %>
+    <%= link_to "Sign in", new_user_session_path %>
+<% end %>

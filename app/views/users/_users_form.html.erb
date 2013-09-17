@@ -1,0 +1,29 @@
+<%= form_for(@user) do |f| %>
+    <div class="field">
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+    </div>
+
+    <div class="field">
+        <%= f.label :password %>
+        <%= f.text_field :password %>
+    </div>
+
+    <div class="field">
+        <%= f.label :admin %>
+        <%= f.check_box :admin %>
+    </div>
+    <div class="field">
+        <%= f.label :sales %>
+        <%= f.check_box :sales %>
+    </div>
+    <div class="field">
+        <%= f.label :reports %>
+        <%= f.check_box :reports %>
+    </div>
+
+    <div class="actions">
+        <%= f.submit %>
+    </div>
+    
+<% end %>

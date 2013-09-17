@@ -21,4 +21,9 @@ class ManageController < ApplicationController
 
   def invoice
   end
+
+  def users
+      @users = User.all
+      @user = User.new
+  end
 end
