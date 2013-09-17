@@ -6,7 +6,7 @@ class SalesController < ApplicationController
         @sale.sale_transactions = @current_sales
         @sale.save
 
-        redirect_to sales_landing_path
+        redirect_to sales_landing_path, notice: "Sale Complete :)"
     end
 
     def add_to_sale
