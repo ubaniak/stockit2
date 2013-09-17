@@ -1,5 +1,6 @@
 Stockit2::Application.routes.draw do
 
+  devise_for :users
     post "account_types" => "accounts#create_account_type"
     post "catagories" => "stock#create_catagory"
     post "stocks" => "stock#create"
