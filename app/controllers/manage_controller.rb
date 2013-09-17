@@ -1,4 +1,7 @@
 class ManageController < ApplicationController
+  def landing
+  end
+
   def accounts
       @account_types = AccountType.all
       @account_type = AccountType.new

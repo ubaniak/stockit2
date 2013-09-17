@@ -8,13 +8,22 @@ Stockit2::Application.routes.draw do
     post "bills" => "bills#create"
     post "users" => "users#create"
 
+    # Manage
   get "manage_users" => "manage#users"
   get "manage_invoice" => "manage#invoice"
   get "manage_accounts" => "manage#accounts"
   get "manage_stocks" => "manage#stocks"
   get "manage_account_transfer" => "manage#account_transfer"
   get "manage_bills" => "manage#bills"
+  get "manage_landing" => "manage#landing"
 
+
+    # Sale
+  get "sales_landing" => "sales#landing"
+  get "add_to_sale" => "sales#add_to_sale"
+
+    # Stock
+  get "find_stock" => "stock#find_stock"
   root "pages#home"
 
   resources :accounts

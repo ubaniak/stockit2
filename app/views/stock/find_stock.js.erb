@@ -1,0 +1,18 @@
+$(".selected").html("");
+<% if @catagory.stocks.empty? %>
+        $(".selected").append("There are no stocks for catagory <%= escape_javascript(@cat.name) %>");
+<% else %>
+        $(".selected").append("<%= escape_javascript(render(:partial => "stock/grid", :locals => { :stocks => @catagory.stocks }) )%>");
+<% end %>
+
+$(".embedjs").html("");
+<% if @options == "sale" %>
+    $(".embedjs").html("<script>$('.stock').click(function() { $.get('/add_to_sale', { id: this.id } ); });</script>");
+<% end %>
+<% if @options == "add_stock" %>
+    $(".embedjs").html("<script>$('.stock').click(function() { $('select#add_stock_stock_id')[0].value = this.id });</script>");
+<% end %>
+<% if @options == "invoice" %>
+    $(".embedjs").html("<script>$('.stock').click(function() { $('select#temp_invoice_item_stock_id')[0].value = this.id });</script>");
+<% end %>
+

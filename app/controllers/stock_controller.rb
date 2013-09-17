@@ -1,4 +1,10 @@
 class StockController < ApplicationController
+
+    def find_stock
+        @catagory = Catagory.find(params[:id])
+        @options = params[:options]
+    end
+
     def create_catagory
         @catagory = Catagory.new(catagory_params)
 

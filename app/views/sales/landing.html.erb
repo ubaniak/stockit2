@@ -1,0 +1,20 @@
+
+<script>
+$(document).ready(function() {
+    $("ul.list-catagories li.cats").click(function() {
+        $.get( "/find_stock", { id: this.id, options: "sale"} );
+    });
+});
+</script>
+
+
+<div class="embedjs"> </div>
+<div class="row-fluid">
+    <div class="span2">
+        <%= render "sales/catagories" %>
+    </div>
+    <div class="span4">
+        <div class="selected"></div>
+    </div>
+    <div class="span6"></div>
+</div>
