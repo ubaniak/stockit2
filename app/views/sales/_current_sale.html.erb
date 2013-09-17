@@ -1,0 +1,15 @@
+<%= form_for(@sale) do |f| %>
+    <%= f.label :date %>
+    <%= f.date_select :date %>
+    <br>
+    <%= f.label :account_id %>
+    <%= f.select :account_id, options_from_collection_for_select(Account.all, "id", "name") %>
+    <br>
+
+    <div class="items">
+        <%= render partial: "sales/current_sale_items", locals: { :current_sales => @current_sales }%>
+    </div>
+
+    <br>
+    <%= f.submit "Complete Sale" %>
+<% end %>

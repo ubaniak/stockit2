@@ -1,0 +1,35 @@
+<script>
+    $("tr td.remove_sale").click(function() { $.get("/remove_from_sale", { id: this.id } ); } );
+</script>
+
+<% if current_sales.nil? %>
+<% else %>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>Item</th>
+            <th>Qty</th>
+            <th>Sell Price</th>
+            <th></th>
+        </tr>
+        <% @total = 0 %>
+        <% current_sales.each do |sale| %>
+            <tr>
+                <td><%= sale.stock.name %></td>
+                <td><%= sale.qty %></td>
+                <td><%= sale.sell_price %></td>
+                <td class="remove_sale clickable flat-red" id="<%= sale.id %>"> Remove </td>
+                <% @total += sale.qty * sale.stock.sell_price %>
+            </tr>
+        <% end %>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><strong>Total:</strong></td>
+            <td><strong><%= @total %></strong></td>
+        </tr>
+    </table>
+<% end %>
+
+

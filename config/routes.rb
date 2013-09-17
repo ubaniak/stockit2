@@ -7,6 +7,7 @@ Stockit2::Application.routes.draw do
     post "account_transfers" => "account_transfers#create"
     post "bills" => "bills#create"
     post "users" => "users#create"
+    post "sales" => "sales#new_sale"
 
     # Manage
   get "manage_users" => "manage#users"
@@ -21,6 +22,8 @@ Stockit2::Application.routes.draw do
     # Sale
   get "sales_landing" => "sales#landing"
   get "add_to_sale" => "sales#add_to_sale"
+  get "remove_from_sale" => "sales#remove_from_sale"
+
 
     # Stock
   get "find_stock" => "stock#find_stock"
