@@ -35,7 +35,7 @@ class StockController < ApplicationController
 
     private
     def catagory_params
-      params.require(:catagory).permit(:name)
+      params.require(:catagory).permit(:name, :order, :priority)
     end
 
     def stock_params

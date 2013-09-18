@@ -1,6 +1,6 @@
 $(".selected").html("");
 <% if @catagory.stocks.empty? %>
-        $(".selected").append("There are no stocks for catagory <%= escape_javascript(@cat.name) %>");
+        $(".selected").append("There are no stocks for catagory <%= escape_javascript(@catagory.name) %>");
 <% else %>
         $(".selected").append("<%= escape_javascript(render(:partial => "stock/grid", :locals => { :stocks => @catagory.stocks }) )%>");
 <% end %>

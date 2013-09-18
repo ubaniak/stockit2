@@ -10,14 +10,19 @@ $(document).ready(function() {
 <%= link_to "Refunds", refund_path %>
 
 <div class="embedjs"> </div>
+<div class="priority row-fluid">
+    <div class="span2">
+        <%= render partial: "sales/catagories", locals: { :catagories => @priority } %>
+    </div>
+</div>
 <div class="row-fluid">
     <div class="span2">
-        <%= render "sales/catagories" %>
-    </div>
-    <div class="span4">
-        <div class="selected"></div>
+        <%= render partial: "sales/catagories", locals: { :catagories => @catagories } %>
     </div>
     <div class="span6">
+        <div class="selected"></div>
+    </div>
+    <div class="span4">
         <%= render "sales/current_sale" %>
     </div>
 </div>

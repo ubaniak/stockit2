@@ -11,6 +11,22 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
+<% if user_signed_in? %>
+    <% if current_user.can_manage %>
+        <%= link_to "Administation", manage_landing_path %>
+    <% end %>
+    <% if current_user.can_sell %>
+        <%= link_to "Sale", sales_landing_path %>
+    <% end %>
+<% end %>
+
+
+<% if user_signed_in? %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+<% else %>
+    <%= link_to "Sign in", new_user_session_path %>
+<% end %>
+
 <%= yield %>
 
 </body>

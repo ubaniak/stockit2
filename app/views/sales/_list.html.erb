@@ -1,0 +1,43 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Account</th>
+      <th>Items</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% sales.each do |sale| %>
+        <tr>
+            <td><%= sale.date.to_s %></td>
+            <td><%= sale.account.name %></td>
+            <td>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                        <th>Name</th>
+                        <th>Qty</th>
+                        <th>Sell Price</th>
+                        <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% sale.sale_transactions.each do |st| %>
+                            <tr>
+                                <td><%= st.stock.name %></td>
+                                <td><%= st.qty%></td>
+                                <td><%= st.sell_price %></td>
+                                <td>
+                                    <%= link_to "Refund", refund_item_path(:id => st.id) %>
+                                </td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -24,6 +24,7 @@ Stockit2::Application.routes.draw do
   get "add_to_sale" => "sales#add_to_sale"
   get "remove_from_sale" => "sales#remove_from_sale"
   get "refund" => "sales#refund"
+  get "refund_item" => "sales#refund_item"
 
 
     # Stock

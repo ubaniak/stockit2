@@ -1,4 +1,6 @@
 class SalesController < ApplicationController
+    before_filter :can_sell
+    before_filter :authenticate_user!
 
     def new_sale
         @current_sales = SaleTransaction.find_all_by_user_id(current_user.id)
@@ -10,7 +12,14 @@ class SalesController < ApplicationController
     end
 
     def refund
+        @date = Date.today
+        @sales = Sale.find_all_by_date(@date)
+    end
 
+    def refund_item
+        @item = SaleTransaction.find(params[:id])
+        @item.destroy!
+        redirect_to refund_path
     end
 
     def add_to_sale
@@ -44,6 +53,7 @@ class SalesController < ApplicationController
         @catagories = Catagory.all
         @sale = Sale.new
         @current_sales = SaleTransaction.find_all_by_user_id(current_user.id)
+        @priority = Catagory.find_all_by_priority(true)
     end
 
     private
