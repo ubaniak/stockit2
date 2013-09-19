@@ -2,4 +2,4 @@
 <%= @date.strftime("%d %B %Y") %>
 <%= link_to ">", :date => @date.tomorrow.to_s %>
 
-<%= render partial: "sales/list", locals: { sales: @sales, refund:true } %>
+<%= render partial: "sales/list_for_refund", locals: { sales: @sales } %>

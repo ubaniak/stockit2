@@ -20,16 +20,18 @@
                         <th>Name</th>
                         <th>Qty</th>
                         <th>Sell Price</th>
-                        <th>Refunded</th>
+                        <th></th> 
                         </tr>
                     </thead>
                     <tbody>
                         <% sale.sale_transactions.each do |st| %>
                             <tr>
-                                <td><%= st.stock.name %></td>
-                                <td><%= st.qty%></td>
-                                <td><%= st.sell_price %></td>
-                                <td><%= st.refunded %></td>
+                                <% if not st.refunded %>
+                                    <td><%= st.stock.name %></td>
+                                    <td><%= st.qty%></td>
+                                    <td><%= st.sell_price %></td>
+                                    <td> <%= link_to "Refund", refund_item_path(:id => st.id) %> </td>
+                                <% end %>
                             </tr>
                         <% end %>
                     </tbody>

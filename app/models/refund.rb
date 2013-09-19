@@ -12,6 +12,7 @@ class Refund < ActiveRecord::Base
         refund.sell_price = item.sell_price
 
         refund.save
-        item.destroy
+        item.refunded = true
+        item.save
     end
 end
