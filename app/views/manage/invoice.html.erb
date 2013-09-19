@@ -1,4 +1,33 @@
+<script>
+$(document).ready(function() {
+    $("ul.list-catagories li.cats").click(function() {
+        $.get( "/find_stock", { id: this.id, options: "invoice"} );
+    });
+});
+</script>
 
-<%= render "invoices/item_form" %>
+<div class="embedjs"></div>
+<div class="row-fluid">
+    <div class="span6">
+        <div class="row-fluid">
+            <div class="span6">
+                <%= render partial: "sales/catagories", locals: { :catagories => @catagories } %>
+            </div>
+            <div class="span6">
+                <div class="selected"></div>
+            </div>
+        </div>
+    </div>
+    <div class="span6">
+        <%= render "invoices/item_form" %>
+    </div>
+</div>
 
-<%= render "invoices/form" %>
+<div class="row-fluid">
+    <div class="span6">
+        <%= render partial: "invoices/list_invoice_items", locals: {invoice_items: @invoice_items} %>
+    </div>
+    <div class="span6">
+        <%= render "invoices/form" %>
+    </div>
+</div>

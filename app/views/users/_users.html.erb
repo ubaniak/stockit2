@@ -1,8 +1,8 @@
 <% @users.each do |user| %>
     <%= user.email %>
     <div class="permission">
-        Admin: <%= user.can_admin %>
-        Sales: <%= user.can_sale %>
+        Admin: <%= user.can_manage %>
+        Sales: <%= user.can_sell %>
         Reports: <%= user.can_report %>
     </div>
 <% end %>

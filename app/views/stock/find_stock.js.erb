@@ -13,6 +13,6 @@ $(".embedjs").html("");
     $(".embedjs").html("<script>$('.stock').click(function() { $('select#add_stock_stock_id')[0].value = this.id });</script>");
 <% end %>
 <% if @options == "invoice" %>
-    $(".embedjs").html("<script>$('.stock').click(function() { $('select#temp_invoice_item_stock_id')[0].value = this.id });</script>");
+    $(".embedjs").html("<script>$('.stock').click(function() { $('select#invoice_item_stock_id')[0].value = this.id });</script>");
 <% end %>
 

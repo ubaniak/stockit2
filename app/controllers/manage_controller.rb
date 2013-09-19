@@ -28,6 +28,8 @@ class ManageController < ApplicationController
   def invoice
       @invoice = Invoice.new
       @invoice_item = InvoiceItem.new
+      @catagories = Catagory.all
+      @invoice_items = InvoiceItem.find_all_by_user_id(current_user.id)
   end
 
   def users

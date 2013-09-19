@@ -1,0 +1,23 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Qty</th>
+      <th>Cost Price</th>
+      <th>Sell Price</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% invoice_items.each do |item| %>
+        <tr>
+            <td><%= item.stock.name %></td>
+            <td><%= item.qty %></td>
+            <td><%= item.cost_price %></td>
+            <td><%= item.sell_price %></td>
+            <td><%= item.sell_price %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
