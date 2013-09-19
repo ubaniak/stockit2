@@ -1,0 +1,25 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Reason</th>
+      <th>Amount</th>
+      <th>Payment</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% account_transfers.each do |at| %>
+        <tr>
+            <td><%= at.date.to_s %></td>
+            <td><%= at.from_account.name %></td>
+            <td><%= at.to_account.name %></td>
+            <td><%= at.reason %></td>
+            <td><%= at.amount %></td>
+            <td><%= at.payment %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>

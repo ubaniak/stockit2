@@ -13,3 +13,12 @@
 <h4>Invoices</h4>
 
 <%= render partial: "invoices/list", locals: {invoices: @invoices } %>
+
+<h4>Bills</h4>
+
+<%= render partial: "bills/list", locals: {bills: @bills } %>
+
+<h4>Account Transfers</h4>
+
+<%= render partial: "accounts/account_transfer_list", locals: {account_transfers: @account_transfers } %>
+
