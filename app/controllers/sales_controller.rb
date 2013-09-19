@@ -12,7 +12,7 @@ class SalesController < ApplicationController
     end
 
     def refund
-        @date = Date.today
+        @date = params[:month] ? Date.parse(params[:month], :format => "%Y-%m") : Date.today
         @sales = Sale.find_all_by_date(@date)
     end
 

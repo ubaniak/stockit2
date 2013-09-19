@@ -1,1 +1,5 @@
+<%= link_to "<", :month => @date.yesterday.to_s %>
+<%= @date.strftime("%d %B %Y") %>
+<%= link_to ">", :month => @date.tomorrow.to_s %>
+
 <%= render partial: "sales/list", locals: { :sales => @sales } %>
