@@ -8,26 +8,15 @@
 </head>
 <body>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%= render "layouts/header" %>
 
-<% if user_signed_in? %>
-    <% if current_user.can_manage %>
-        <%= link_to "Administation", manage_landing_path %>
-    <% end %>
-    <% if current_user.can_sell %>
-        <%= link_to "Sale", sales_landing_path %>
-    <% end %>
-<% end %>
+    <hr>
+
+    <% if not notice.nil? %><p class="notice"><%= notice %></p> <% end %>
+    <% if not alert.nil? %><p class="alert"><%= alert %></p> <% end %>
 
 
-<% if user_signed_in? %>
-    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-<% else %>
-    <%= link_to "Sign in", new_user_session_path %>
-<% end %>
-
-<%= yield %>
+    <%= yield %>
 
 </body>
 </html>

@@ -1,0 +1,25 @@
+<div class="row-fluid">
+    <div class="span6">
+        <% if user_signed_in? %>
+            <ul>
+            <% if current_user.can_manage %>
+                <li>
+                <%= link_to "Administation", manage_landing_path %>
+                </li>
+            <% end %>
+            <% if current_user.can_sell %>
+                <li>
+                <%= link_to "Sale", sales_landing_path %>
+                </li>
+            <% end %>
+            </ul>
+        <% end %>
+    </div>
+    <div class="span6">
+        <% if user_signed_in? %>
+            <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+        <% else %>
+            <%= link_to "Sign in", new_user_session_path %>
+        <% end %>
+    </div>
+</div>
