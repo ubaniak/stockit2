@@ -20,7 +20,7 @@
                         <th>Name</th>
                         <th>Qty</th>
                         <th>Sell Price</th>
-                        <th></th>
+                        <% if refund %> <th></th> <% end %>
                         </tr>
                     </thead>
                     <tbody>
@@ -29,9 +29,11 @@
                                 <td><%= st.stock.name %></td>
                                 <td><%= st.qty%></td>
                                 <td><%= st.sell_price %></td>
+                                <% if refund %>
                                 <td>
                                     <%= link_to "Refund", refund_item_path(:id => st.id) %>
                                 </td>
+                                <% end %>
                             </tr>
                         <% end %>
                     </tbody>

@@ -1,0 +1,28 @@
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Who</th>
+      <th>Sale Date</th>
+      <th>Item</th>
+      <th>Qty</th>
+      <th>Sell Price</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+
+  <tbody>
+        <% refunds.each do |refund| %>
+            <tr>
+                <td><%= refund.date.strftime("%Y-%m-%d") %></td>
+                <td><%= refund.user.email %></td>
+                <td><%= refund.sale_date.strftime("%Y-%m-%d") %></td>
+                <td><%= refund.stock.name %></td>
+                <td><%= refund.qty %></td>
+                <td><%= refund.sell_price %></td>
+                <td><%= refund.sell_price * refund.qty %></td>
+            </tr>
+        <% end %>
+  </tbody>
+</table>

@@ -8,6 +8,8 @@ Stockit2::Application.routes.draw do
     post "bills" => "bills#create"
     post "users" => "users#create"
     post "sales" => "sales#new_sale"
+    post "invoices" => "invoices#create"
+    post "invoice_items" => "invoices#create_invoice_item"
 
     # Manage
   get "manage_users" => "manage#users"
@@ -30,6 +32,10 @@ Stockit2::Application.routes.draw do
     # Stock
   get "find_stock" => "stock#find_stock"
   root "pages#home"
+
+    #Reports
+  get "reports_landing" => "reports#landing"
+  get "daily_report" => "reports#daily_report"
 
   resources :accounts
 

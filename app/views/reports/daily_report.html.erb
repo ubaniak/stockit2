@@ -1,0 +1,11 @@
+<h3>Daily report for <%= @date.strftime("%d %B %Y") %></h3>
+
+<h4>Sales</h4>
+
+<%= render partial: "sales/list", locals: {sales: @sales, refund:false } %>
+
+<h4>Refunds</h4>
+
+<%= render partial: "sales/refunds", locals: {refunds: @refunds } %>
+
+

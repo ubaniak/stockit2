@@ -26,6 +26,8 @@ class ManageController < ApplicationController
   end
 
   def invoice
+      @invoice = Invoice.new
+      @invoice_item = InvoiceItem.new
   end
 
   def users

@@ -17,8 +17,7 @@ class SalesController < ApplicationController
     end
 
     def refund_item
-        @item = SaleTransaction.find(params[:id])
-        @item.destroy!
+        Refund.refund_item(SaleTransaction.find(params[:id]), current_user)
         redirect_to refund_path
     end
 

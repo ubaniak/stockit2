@@ -12,6 +12,11 @@
                 <%= link_to "Sale", sales_landing_path %>
                 </li>
             <% end %>
+            <% if current_user.can_report %>
+                <li>
+                <%= link_to "Reports", reports_landing_path %>
+                </li>
+            <% end %>
             </ul>
         <% end %>
     </div>
