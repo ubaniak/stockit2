@@ -6,6 +6,7 @@ class Stock < ActiveRecord::Base
 
     def set_defaults
         self.qty ||= 0
+        self.min_stock ||= 0
         self.cost_price ||= 0
         self.sell_price ||= 0
     end
