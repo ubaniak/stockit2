@@ -1,5 +1,25 @@
 <%= form_for(@invoice_item) do |f| %>
 
+  <div class="field">
+    <%= f.label :stock_id %><br />
+    <%= f.select :stock_id, options_from_collection_for_select(Stock.all, "id", "name") %>
+  </div>
+
+  <div class="field">
+    <%= f.label :qty %><br>
+    <%= f.number_field :qty %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cost_price %><br>
+    <%= f.text_field :cost_price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sell_price %><br>
+    <%= f.text_field :sell_price %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
