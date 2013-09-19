@@ -9,5 +9,6 @@ class ReportsController < ApplicationController
         @date = params[:date] ? Date.parse(params["date"]) : Date.today
         @sales = Sale.find_all_by_date(@date)
         @refunds = Refund.find_all_by_date(@date)
+        @invoices = Invoice.find_all_by_date(@date)
     end
 end

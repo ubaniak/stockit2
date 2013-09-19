@@ -1,4 +1,6 @@
-<h3>Daily report for <%= @date.strftime("%d %B %Y") %></h3>
+<%= link_to "<", :date => @date.yesterday.to_s %>
+<%= @date.strftime("%d %B %Y") %>
+<%= link_to ">", :date => @date.tomorrow.to_s %>
 
 <h4>Sales</h4>
 
@@ -8,4 +10,6 @@
 
 <%= render partial: "sales/refunds", locals: {refunds: @refunds } %>
 
+<h4>Invoices</h4>
 
+<%= render partial: "invoices/list", locals: {invoices: @invoices } %>
