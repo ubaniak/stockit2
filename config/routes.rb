@@ -35,7 +35,8 @@ Stockit2::Application.routes.draw do
 
     #Reports
   get "reports_landing" => "reports#landing"
-  get "daily_report" => "reports#daily_report"
+  get "daily_report" => "reports#daily"
+  get "stock_report" => "reports#stock"
 
   resources :accounts
 

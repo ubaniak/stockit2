@@ -5,7 +5,7 @@
         <th>Qty</th>
         <th>Cost Price</th>
         <th>Sell Price</th>
-        <th></th>
+        <th>Min Stock</th>
     </tr>
     <% @catagories.each do |catagory| %>
         <% catagory.stocks.each do |stock| %>
@@ -15,7 +15,11 @@
                 <td><%= stock.qty %></td>
                 <td><%= stock.cost_price %></td>
                 <td><%= stock.sell_price %></td>
-                <td></td>
+                <% if stock.qty <= stock.min_stock %>
+                <td class="warning"><%= stock.min_stock %></td>
+                <% else %>
+                <td><%= stock.min_stock %></td>
+                <% end %>
             </tr>
         <% end %>
     <% end %>

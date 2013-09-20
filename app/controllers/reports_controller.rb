@@ -5,7 +5,7 @@ class ReportsController < ApplicationController
     def landing
     end
 
-    def daily_report
+    def daily
         @date = params[:date] ? Date.parse(params["date"]) : Date.today
 
         @sales = Sale.find_all_by_date(@date)
@@ -13,5 +13,9 @@ class ReportsController < ApplicationController
         @invoices = Invoice.find_all_by_date(@date)
         @bills = Bill.find_all_by_date(@date)
         @account_transfers = AccountTransfer.find_all_by_date(@date)
+    end
+
+    def stock 
+        @catagories = Catagory.all
     end
 end
