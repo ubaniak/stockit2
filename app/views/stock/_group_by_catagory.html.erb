@@ -1,0 +1,29 @@
+<% @catagories.each do |catagory| %>
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Catagory</th>
+        <th>Qty</th>
+        <th>Cost Price</th>
+        <th>Sell Price</th>
+        <th>Min Stock</th>
+    </tr>
+
+    <% catagory.stocks.each do |stock| %>
+        <tr>
+            <td><%= stock.name %></td>
+            <td><%= stock.catagory.name %></td>
+            <td><%= stock.qty %></td>
+            <td><%= stock.cost_price %></td>
+            <td><%= stock.sell_price %></td>
+            <% if stock.qty <= stock.min_stock %>
+                <td class="warning"><%= stock.min_stock %></td>
+            <% else %>
+                <td><%= stock.min_stock %></td>
+            <% end %>
+        </tr>
+    <% end %>
+
+</table>
+
+<% end %>
