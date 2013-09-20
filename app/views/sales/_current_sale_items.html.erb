@@ -1,7 +1,3 @@
-<script>
-    $("tr td.remove_sale").click(function() { $.get("/remove_from_sale", { id: this.id } ); } );
-</script>
-
 <% if current_sales.nil? %>
 <% else %>
 
@@ -18,7 +14,7 @@
                 <td><%= sale.stock.name %></td>
                 <td><%= sale.qty %></td>
                 <td><%= sale.sell_price %></td>
-                <td class="remove_sale clickable flat-red" id="<%= sale.id %>"> Remove </td>
+                <td><%= link_to "Remove", remove_from_sale_path(:id => sale.id) %></td>
                 <% @total += sale.qty * sale.stock.sell_price %>
             </tr>
         <% end %>
