@@ -1,22 +1,25 @@
 <% curr_item = 0 %>
 <% max_cols = 4 %>
-<% stocks.each do |stock| %>
-    <% if curr_item == 0 %>
-        <div class="row-fluid">
-    <% end %>
+<div class="scrollable-y fixed_height">
+    <% stocks.each do |stock| %>
+        <% if curr_item == 0 %>
+            <div class="row-fluid">
+        <% end %>
 
-        <div class="span3">
-            <div class="stock display clickable" id="<%= stock.id %>">
-                <%= stock.name %> (<%= stock.qty %>): <strong>ZMK <%= stock.sell_price %></strong>
+            <div class="span3">
+                <div class="stock display clickable" id="<%= stock.id %>">
+                    <%= stock.name %> (<%= stock.qty %>): <strong>ZMK <%= stock.sell_price %></strong>
+                </div>
             </div>
-        </div>
 
-    <% if curr_item == max_cols %>
-        </div>  
-        <% curr_item = 0 %>
+            <% curr_item += 1 %>
+        <% if curr_item == max_cols %>
+            </div>  
+            <% curr_item = 0 %>
+        <% end %>
     <% end %>
-<% end %>
 
-<% if curr_item > 0 and curr_item < max_cols %>
-    </div>
-<% end %>
+    <% if curr_item > 0 and curr_item < max_cols %>
+        </div>
+    <% end %>
+</div>

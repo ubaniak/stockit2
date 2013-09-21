@@ -8,9 +8,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   def validate?
-      if not self.admin and not self.sales and not self.reports
-          return false
-      end
-      return true
+      return [self.can_manage, self.can_sell, self.can_report].any?
   end
 end

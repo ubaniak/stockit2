@@ -5,4 +5,7 @@
         Sales: <%= user.can_sell %>
         Reports: <%= user.can_report %>
     </div>
+    <div>
+        <%= link_to "Edit", edit_user_path(:id => user.id) %>
+    </div>
 <% end %>

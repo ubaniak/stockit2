@@ -33,10 +33,14 @@ Stockit2::Application.routes.draw do
   get "find_stock" => "stock#find_stock"
   root "pages#home"
 
-    #Reports
+    # Reports
   get "reports_landing" => "reports#landing"
   get "daily_report" => "reports#daily"
   get "stock_report" => "reports#stock"
+
+    # Users
+  get "edit_user" => "users#edit"
+  get "update_user" => "users#update"
 
   resources :accounts
 

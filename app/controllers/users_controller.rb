@@ -9,9 +9,17 @@ class UsersController < ApplicationController
         end
     end
 
+    def edit
+        @user = User.find(params[:id])
+    end
+
+    def update
+        redirect_to manage_users_path
+    end
+
 
     private
     def user_params
-      params.require(:user).permit(:email, :password, :sales, :admin, :reports)
+      params.require(:user).permit(:email, :password, :can_sell, :can_manage, :can_report)
     end
 end

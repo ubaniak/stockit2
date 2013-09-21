@@ -25,3 +25,11 @@
 ul.no-bullet {
    list-style: none;
 }
+
+.scrollable-y {
+    overflow-y: scroll;
+}
+
+.fixed_height {
+    height: 500px;
+}
