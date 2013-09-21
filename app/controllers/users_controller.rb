@@ -14,7 +14,12 @@ class UsersController < ApplicationController
     end
 
     def update
-        redirect_to manage_users_path
+        @user = User.find(params[:id])
+        if @user.update(:can_manage => params[:can_manage], :can_sell => params[:can_sell], :can_report => params[:can_report])
+            redirect_to manage_users_path
+        else
+            redirect_to manage_users_path
+        end
     end
 
 

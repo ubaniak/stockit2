@@ -40,7 +40,7 @@ Stockit2::Application.routes.draw do
 
     # Users
   get "edit_user" => "users#edit"
-  get "update_user" => "users#update"
+  post "update_user" => "users#update"
 
   resources :accounts
 
