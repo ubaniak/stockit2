@@ -22,6 +22,11 @@
     border-color: #39c5c5;
 }
 
+.clickable_2:hover {
+    color: blue;
+    border-color: blue;
+}
+
 .fixed-width {
     width: 150px;
     text-align: center;
@@ -70,3 +75,7 @@ td.warning {
     color: white;
     background-color: grey;
 }
+span.warning {
+    color: red;
+}
+

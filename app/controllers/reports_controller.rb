@@ -69,6 +69,6 @@ class ReportsController < ApplicationController
     end
 
     def low_stock
-        @stocks = Stock.low_stock
+        @stocks = Stock.low_stocks
     end
 end

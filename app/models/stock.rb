@@ -4,7 +4,11 @@ class Stock < ActiveRecord::Base
 
     after_initialize :set_defaults
 
-    scope :low_stock, where( "qty <= min_stock" )
+    scope :low_stocks, where( "qty <= min_stock" )
+
+    def low_stock?
+        self.qty <= self.min_stock 
+    end
 
     def set_defaults
         self.qty ||= 0

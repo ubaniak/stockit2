@@ -7,8 +7,14 @@
         <% end %>
 
             <div class="span3">
-                <div class="stock display clickable" id="<%= stock.id %>">
-                    <%= stock.name %> (<%= stock.qty %>)<br>
+                <div class="stock display clickable_2" id="<%= stock.id %>">
+                    <%= stock.name %>
+                    <% if stock.low_stock? %>
+                        <span class="warning">(<%= stock.qty %>)</span>
+                    <% else %>
+                        (<%= stock.qty %>)
+                    <% end %>
+                    <br>
                     <strong>ZMK <%= stock.sell_price %></strong>
                 </div>
             </div>

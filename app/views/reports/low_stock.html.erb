@@ -13,7 +13,7 @@
         <tr>
             <td><%= stock.name %></td>
             <td><%= stock.catagory.name %></td>
-            <% if stock.qty <= stock.min_stock %>
+            <% if stock.low_stock? %>
                 <td class="warning"><%= stock.qty %></td>
             <% else %>
                 <td><%= stock.qty %></td>
