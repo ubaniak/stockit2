@@ -1,5 +1,9 @@
 class StockController < ApplicationController
 
+    before_filter :authenticate_user!
+    before_filter :can_manage, :only => [:create_catagory, :create, :find_stock]
+    before_filter :can_sell, :only => [:find_stock]
+
     def find_stock
         @catagory = Catagory.find(params[:id])
         @options = params[:options]
@@ -39,6 +43,6 @@ class StockController < ApplicationController
     end
 
     def stock_params
-      params.require(:stock).permit(:catagory_id, :name, :qty, :cost_price, :sell_price)
+      params.require(:stock).permit(:catagory_id, :name, :qty, :cost_price, :sell_price, :min_stock)
     end
 end

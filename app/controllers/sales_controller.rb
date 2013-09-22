@@ -40,6 +40,14 @@ class SalesController < ApplicationController
         @priority = Catagory.find_all_by_priority(true)
     end
 
+    def void_sale
+        @current_sales = SaleTransaction.find_all_by_user_id(current_user.id)
+        @current_sales.each do |s|
+            s.destroy
+        end
+        redirect_to sales_landing_path, notice: "Sale voided"
+    end
+
     private
 
     def sale_params

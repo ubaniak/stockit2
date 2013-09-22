@@ -27,6 +27,7 @@ Stockit2::Application.routes.draw do
   get "remove_from_sale" => "sales#remove_from_sale"
   get "refund" => "sales#refund"
   get "refund_item" => "sales#refund_item"
+  get "void_sale" => "sales#void_sale"
 
 
     # Stock
@@ -37,6 +38,9 @@ Stockit2::Application.routes.draw do
   get "reports_landing" => "reports#landing"
   get "daily_report" => "reports#daily"
   get "stock_report" => "reports#stock"
+  get "profit_and_loss_report" => "reports#profit_and_loss"
+  get "stock_take_cards" => "reports#stock_take_cards"
+  get "low_stock_report" => "reports#low_stock"
 
     # Users
   get "edit_user" => "users#edit"

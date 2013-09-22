@@ -1,0 +1,19 @@
+<% @catagories.each do |catagory| %>
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Catagory</th>
+        <th>Qty</th>
+    </tr>
+
+    <% catagory.stocks.each do |stock| %>
+        <tr>
+            <td><%= stock.name %></td>
+            <td><%= stock.catagory.name %></td>
+            <td></td>
+        </tr>
+    <% end %>
+
+</table>
+
+<% end %>

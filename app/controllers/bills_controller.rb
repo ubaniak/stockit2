@@ -1,4 +1,6 @@
 class BillsController < ApplicationController
+    before_filter :authenticate_user!
+    before_filter :can_manage
 
     def create
         

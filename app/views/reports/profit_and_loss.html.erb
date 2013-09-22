@@ -1,0 +1,31 @@
+<%= link_to "<", :date => @date.yesterday.to_s %>
+<%= @date.strftime("%d %B %Y") %>
+<%= link_to ">", :date => @date.tomorrow.to_s %>
+
+<h4>Profit and loss for <%= @date %></h4>
+
+Number of sales: <%= @sales.count %><br>
+Number of refunds: <%= @refunds.count %><br>
+<br>
+
+Total Sales: <%= @total[:sales] %><br>
+Total Refunds: <%= @total[:refunds] %><br>
+<br>
+Sold Items Cost Price: <%= @total[:cost_price] %><br>
+Sold Items Sell Price: <%= @total[:sell_price] %><br>
+Gross Profits: <%= @total[:sell_price] - @total[:cost_price] %><br>
+<br>
+Number of account transfers: <%= @total[:number_of_account_transfers] %><br>
+Number of Payments: <%= @total[:number_of_payments] %><br>
+Total Payments: <%= @total[:payments] %><br>
+
+<br>
+Amounts transfered to:<br>
+<% @account_types.each do |at| %>
+    <%= at.name %>: <%= @total[at.name] %><br>
+<% end %>
+Total Transfers: <%= @total[:transfers] %>
+
+<br>
+<br>
+Profits less payments: <%= @total[:sell_price] - @total[:cost_price] - @total[:payments] %>

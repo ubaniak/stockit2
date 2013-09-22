@@ -3,9 +3,8 @@
  * *******************/
 
 .display {
-    border: thin;
-    border-style: solid;
-    border-color: black;
+    border: 3px solid black;
+    border-radius: 24px;
     padding-top: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
@@ -13,8 +12,14 @@
     margin-bottom: 10px;
 }
 
+.grey-area {
+    background-color: #D5D2CA;
+    height: 500px
+}
+
 .clickable:hover {
-    color: red;
+    color: #38c5c5;
+    border-color: #39c5c5;
 }
 
 .fixed-width {
@@ -32,4 +37,36 @@ ul.no-bullet {
 
 .fixed_height {
     height: 500px;
+}
+
+.side-bar {
+    background: url("stressed_linen.png");
+    color: #eeeeee;
+}
+
+ul.list-catagories {
+    padding-top: 20px;
+    padding-right: 30px;
+}
+
+.display-cat {
+    margin-bottom: 10px;
+    border-radius: 24px;
+    border: 3px solid #eeeeee;
+    line-height: 1em;
+    -webkit-transition: all 0.3s;
+    text-align: center;
+    font-size: 20px;
+    width: 100px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.priority {
+    border: 3px solid #39c5c5;
+}
+
+td.warning {
+    color: white;
+    background-color: grey;
 }

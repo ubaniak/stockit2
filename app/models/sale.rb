@@ -7,6 +7,22 @@ class Sale < ActiveRecord::Base
     after_save :set_default_number
     before_destroy :untransfer
 
+    def calc_total
+        total = {
+            :sales => 0,
+            :cost_price => 0,
+            :sell_price => 0,
+        }
+        self.sale_transactions.each do |st|
+            total[:sales] = st.sell_price * st.qty
+            if not st.refunded
+                total[:cost_price] = st.stock.cost_price * st.qty
+                total[:sell_price] = st.sell_price * st.qty
+            end
+        end
+        return total
+    end
+
     def transfer
         total = 0
         self.sale_transactions.each do |st|

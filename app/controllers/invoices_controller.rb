@@ -1,4 +1,6 @@
 class InvoicesController < ApplicationController
+    before_filter :authenticate_user!
+    before_filter :can_manage
 
     def create_invoice_item
         @invoice_item = InvoiceItem.new(invoice_item_params)

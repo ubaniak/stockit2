@@ -1,4 +1,7 @@
 class AccountsController < ApplicationController
+    before_filter :authenticate_user!
+    before_filter :can_manage
+
     def create_account_type
         @account_type = AccountType.new(account_type_params)
 

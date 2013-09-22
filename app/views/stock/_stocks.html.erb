@@ -12,14 +12,14 @@
             <tr>
                 <td><%= stock.name %></td>
                 <td><%= stock.catagory.name %></td>
-                <td><%= stock.qty %></td>
+                <% if stock.qty <= stock.min_stock %>
+                    <td class="warning"><%= stock.qty %></td>
+                <% else %>
+                    <td><%= stock.qty %></td>
+                <% end %>
                 <td><%= stock.cost_price %></td>
                 <td><%= stock.sell_price %></td>
-                <% if stock.qty <= stock.min_stock %>
-                <td class="warning"><%= stock.min_stock %></td>
-                <% else %>
                 <td><%= stock.min_stock %></td>
-                <% end %>
             </tr>
         <% end %>
     <% end %>
