@@ -1,0 +1,27 @@
+
+<%= form_tag update_account_path(:id => @account.id) do %>
+
+  <div class="field">
+    <%= label_tag :name %><br>
+    <%= text_field_tag :name, @account.name %>
+  </div>
+  <div class="field">
+    <%= label_tag :balance %><br>
+    <%= text_field_tag :balance, @account.balance %>
+  </div>
+  <div class="field">
+    <%= label_tag :account_type_id %><br>
+    <%= select_tag :account_type_id, options_from_collection_for_select(AccountType.all, "id","name", @account.account_type_id.to_s) %>
+  </div>
+  <div class="field">
+    <%= label_tag :default_sales %><br>
+    <%= check_box_tag :default_sales, @account.default_sales %>
+  </div>
+  <div class="field">
+    <%= label_tag :credit %><br>
+    <%= check_box_tag :credit, @account.credit %>
+  </div>
+  <div class="actions">
+    <%= submit_tag %>
+  </div>
+<% end %>

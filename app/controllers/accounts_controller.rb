@@ -2,6 +2,20 @@ class AccountsController < ApplicationController
     before_filter :authenticate_user!
     before_filter :can_manage
 
+    def index
+        @account_types = AccountType.all
+    end
+
+    def edit
+        @account = Account.find(params[:id])
+    end
+
+    def update
+        @account = Account.find(params[:id])
+        @account.update(:name => params[:name], :balance => params[:balance], :account_type_id => params[:account_type_id])
+        redirect_to accounts_path, notice: "Account updated"
+    end
+
     def create_account_type
         @account_type = AccountType.new(account_type_params)
 

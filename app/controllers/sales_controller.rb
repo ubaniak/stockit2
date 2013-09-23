@@ -1,5 +1,6 @@
 class SalesController < ApplicationController
     before_filter :can_sell
+    before_filter :default_sales_account
     before_filter :authenticate_user!
 
     def new_sale

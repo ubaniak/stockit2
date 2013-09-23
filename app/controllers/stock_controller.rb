@@ -1,8 +1,27 @@
 class StockController < ApplicationController
 
     before_filter :authenticate_user!
-    before_filter :can_manage, :only => [:create_catagory, :create, :find_stock]
+    before_filter :can_manage, :only => [:create_catagory, :create, :find_stock, :index, :edit]
     before_filter :can_sell, :only => [:find_stock]
+
+    def index
+        @stocks = Stock.all
+    end
+
+    def edit
+        @stock = Stock.find(params[:id])
+    end
+
+    def update
+        @stock = Stock.find(params[:id])
+        @stock.update(:name => params[:name], 
+                      :catagory_id => params[:catagory_id], 
+                      :cost_price => params[:cost_price], 
+                      :sell_price => params[:sell_price], 
+                      :min_stock => params[:min_stock])
+
+        redirect_to list_stocks_path, notice: "Stock successfully updated"
+    end
 
     def find_stock
         @catagory = Catagory.find(params[:id])

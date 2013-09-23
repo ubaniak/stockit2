@@ -1,0 +1,4 @@
+
+<% if not is_default_sales_account_set? and user_signed_in? and current_user.can_manage %>
+    <%= link_to "Create Default Sales Account", create_dafault_sales_account_path %> 
+<% end %>

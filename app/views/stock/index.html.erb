@@ -1,0 +1,31 @@
+<h4>Listing stock</h4>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Catagory</th>
+        <th>Qty</th>
+        <th>Cost Price</th>
+        <th>Sell Price</th>
+        <th>Min Stock</th>
+        <th></th>
+    </tr>
+
+    <% @stocks.each do |stock| %>
+        <tr>
+            <td><%= stock.name %></td>
+            <td><%= stock.catagory.name %></td>
+            <% if stock.low_stock? %>
+                <td class="warning"><%= stock.qty %></td>
+            <% else %>
+                <td><%= stock.qty %></td>
+            <% end %>
+            <td><%= stock.cost_price %></td>
+            <td><%= stock.sell_price %></td>
+            <td><%= stock.min_stock %></td>
+            <td><%= link_to "Edit", edit_stock_path(:id => stock.id)%></td>
+        </tr>
+    <% end %>
+
+</table>
+

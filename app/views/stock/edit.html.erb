@@ -1,0 +1,31 @@
+<%= form_tag update_stock_path(:id => @stock.id) do %>
+
+  <div class="field">
+    <%= label_tag :name %><br>
+    <%= text_field_tag :name, @stock.name %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :catagory_id %><br>
+    <%= select_tag :catagory_id, options_from_collection_for_select(Catagory.all, "id","name", @stock.catagory_id.to_s) %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :cost_price %><br>
+    <%= text_field_tag :cost_price, @stock.cost_price %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :sell_price %><br>
+    <%= text_field_tag :sell_price, @stock.sell_price %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :min_stock %><br>
+    <%= number_field_tag :min_stock, @stock.min_stock %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag %>
+  </div>
+<% end %>

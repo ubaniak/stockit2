@@ -19,7 +19,13 @@ Stockit2::Application.routes.draw do
   get "manage_account_transfer" => "manage#account_transfer"
   get "manage_bills" => "manage#bills"
   get "manage_landing" => "manage#landing"
+  get "create_dafault_sales_account" => "manage#create_default_sales_account"
 
+
+    #accounts
+  get "accounts" => "accounts#index"
+  get "edit_account" => "accounts#edit"
+  post "update_account" => "accounts#update"
 
     # Sale
   get "sales_landing" => "sales#landing"
@@ -33,6 +39,9 @@ Stockit2::Application.routes.draw do
     # Stock
   get "find_stock" => "stock#find_stock"
   root "pages#home"
+  get "list_stocks" => "stock#index"
+  get "edit_stock" => "stock#edit"
+  post "update_stock" => "stock#update"
 
     # Reports
   get "reports_landing" => "reports#landing"
@@ -45,8 +54,6 @@ Stockit2::Application.routes.draw do
     # Users
   get "edit_user" => "users#edit"
   post "update_user" => "users#update"
-
-  resources :accounts
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

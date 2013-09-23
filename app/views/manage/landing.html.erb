@@ -1,8 +1,31 @@
-<ul>
-    <li><%= link_to "accounts", manage_accounts_path %></li>
-    <li><%= link_to "stock", manage_stocks_path %></li>
-    <li><%= link_to "account transfer", manage_account_transfer_path %></li>
-    <li><%= link_to "Bills", manage_bills_path %></li>
-    <li><%= link_to "invoice", manage_invoice_path %></li>
-    <li><%= link_to "Users", manage_users_path %></li>
-</ul>
+
+<div class="row-fluid">
+    <div class="span3">
+        Accounts
+        <ul>
+            <li><%= link_to "create accounts", manage_accounts_path %></li>
+            <li><%= link_to "list accounts", accounts_path %></li>
+        </ul>
+    </div>
+    <div class="span3">
+        Stock
+        <ul>
+            <li><%= link_to "create stock", manage_stocks_path %></li>
+            <li><%= link_to "list stock", list_stocks_path %></li>
+        </ul>
+    </div>
+    <div class="span3">
+        Bills
+        <ul>
+            <li><%= link_to "account transfer", manage_account_transfer_path %></li>
+            <li><%= link_to "bills", manage_bills_path %></li>
+            <li><%= link_to "invoice", manage_invoice_path %></li>
+        </ul>
+    </div>
+    <div class="span3">
+        Users
+        <ul>
+            <li><%= link_to "Users", manage_users_path %></li>
+        </ul>
+    </div>
+</div>
