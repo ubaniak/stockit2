@@ -7,6 +7,11 @@ class Sale < ActiveRecord::Base
     after_save :set_default_number
     before_destroy :untransfer
 
+
+    def self.date_range(sd, ed)
+        self.where("date between ? and ?", sd, ed)
+    end
+
     def calc_total
         total = {
             :sales => 0,
