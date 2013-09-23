@@ -42,6 +42,8 @@ Stockit2::Application.routes.draw do
   get "list_stocks" => "stock#index"
   get "edit_stock" => "stock#edit"
   post "update_stock" => "stock#update"
+  get "change_stock_qty" => "stock#change_stock_qty"
+  post "update_qty" => "stock#update_qty"
 
     # Reports
   get "reports_landing" => "reports#landing"

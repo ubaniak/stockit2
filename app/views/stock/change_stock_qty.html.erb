@@ -1,0 +1,24 @@
+<%= form_tag update_qty_path(:id => @stock.id) do %>
+
+  <div class="field">
+      <%= @stock.name %><br>
+  </div>
+  <div class="field">
+      <%= @stock.catagory.name %><br>
+  </div>
+
+
+  <div class="field">
+    <%= label_tag :qty %><br>
+    <%= number_field_tag :qty, @stock.qty %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :reason %><br>
+    <%= text_field_tag :reason %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag %>
+  </div>
+<% end %>

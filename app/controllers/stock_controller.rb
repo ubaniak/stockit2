@@ -28,6 +28,24 @@ class StockController < ApplicationController
         @options = params[:options]
     end
 
+    def change_stock_qty
+        @stock = Stock.find(params[:id])
+    end
+
+    def update_qty
+        @change_qty = ChangeStockQty.new
+        @change_qty.stock_id = params[:id]
+        @change_qty.qty = params[:qty]
+        @change_qty.reason = params[:reason]
+        @change_qty.user_id = current_user.id
+
+        @change_qty.save
+        
+
+
+        redirect_to list_stocks_path
+    end
+
     def create_catagory
         @catagory = Catagory.new(catagory_params)
 

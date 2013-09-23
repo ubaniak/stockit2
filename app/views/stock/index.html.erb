@@ -9,6 +9,7 @@
         <th>Sell Price</th>
         <th>Min Stock</th>
         <th></th>
+        <th></th>
     </tr>
 
     <% @stocks.each do |stock| %>
@@ -24,6 +25,7 @@
             <td><%= stock.sell_price %></td>
             <td><%= stock.min_stock %></td>
             <td><%= link_to "Edit", edit_stock_path(:id => stock.id)%></td>
+            <td><%= link_to "Change qty", change_stock_qty_path(:id => stock.id)%></td>
         </tr>
     <% end %>
 
