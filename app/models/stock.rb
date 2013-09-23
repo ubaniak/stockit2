@@ -1,6 +1,7 @@
 class Stock < ActiveRecord::Base
     belongs_to :catagory
     has_many :sale_transactions
+    has_many :change_stock_qtys
 
     after_initialize :set_defaults
 
