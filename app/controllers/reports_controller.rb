@@ -16,7 +16,8 @@ class ReportsController < ApplicationController
 
         respond_to do |format|
             format.html
-            format.csv { render text: daily_report_to_csv(@date, @sales, @refunds, @invoices, @bills) }
+            format.csv { render text: daily_report_to_csv(@date, @sales, @refunds, @invoices, @bills, @account_transfers) }
+            format.xls { render text: daily_report_to_csv(@date, @sales, @refunds, @invoices, @bills, @account_transfers) }
         end
     end
 
@@ -67,6 +68,12 @@ class ReportsController < ApplicationController
             end
             @total[ac.to_account.account_type.name] += ac.amount
             @total[:transfers] += ac.amount
+        end
+
+        respond_to do |format|
+            format.html
+            format.csv { render text: profit_and_loss_to_csv(@date, @total, @account_types) }
+            format.xls { render text: profit_and_loss_to_csv(@date, @total, @account_types) }
         end
     end
 

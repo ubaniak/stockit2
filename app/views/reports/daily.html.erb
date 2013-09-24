@@ -2,6 +2,12 @@
 <%= @date.strftime("%d %B %Y") %>
 <%= link_to ">", :date => @date.tomorrow.to_s %>
 
+<br>
+Download as
+<%= link_to "CSV", daily_report_path(format: "csv", :date => @date) %> | 
+<%= link_to "XLS", daily_report_path(format: "xls", :date => @date) %>
+<br>
+
 <h4>Sales</h4>
 
 <%= render partial: "sales/list", locals: {sales: @sales, refund:false } %>

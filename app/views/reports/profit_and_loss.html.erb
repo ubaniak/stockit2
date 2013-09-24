@@ -2,6 +2,12 @@
 <%= @date.strftime("%d %B %Y") %>
 <%= link_to ">", :date => @date.tomorrow.to_s %>
 
+<br>
+Download as
+<%= link_to "CSV", profit_and_loss_report_path(format: "csv", :date => @date) %> | 
+<%= link_to "XLS", profit_and_loss_report_path(format: "xls", :date => @date) %>
+<br>
+
 <h4>Profit and loss for <%= @date %></h4>
 
 Number of sales: <%= @sales.count %><br>

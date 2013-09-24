@@ -20,6 +20,8 @@ class Refund < ActiveRecord::Base
 
         refund.save
         item.refunded = true
+        item.stock.qty += item.qty
+        item.stock.save
         item.save
     end
 end
