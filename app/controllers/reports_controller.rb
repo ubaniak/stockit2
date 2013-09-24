@@ -13,6 +13,11 @@ class ReportsController < ApplicationController
         @invoices = Invoice.find_all_by_date(@date)
         @bills = Bill.find_all_by_date(@date)
         @account_transfers = AccountTransfer.find_all_by_date(@date)
+
+        respond_to do |format|
+            format.html
+            format.csv { render text: daily_report_to_csv(@date, @sales, @refunds, @invoices, @bills) }
+        end
     end
 
     def stock 
