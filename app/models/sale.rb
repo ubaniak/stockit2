@@ -6,10 +6,15 @@ class Sale < ActiveRecord::Base
     after_save :transfer
     after_save :set_default_number
     before_destroy :untransfer
+    after_initialize :set_defaults 
+
+    def set_defaults
+        self.date ||= Date.today
+    end
 
 
     def self.date_range(sd, ed)
-        self.where("date between ? and ?", sd, ed)
+        self.where("date between ? and ?", sd, ed).order("date")
     end
 
     def calc_total

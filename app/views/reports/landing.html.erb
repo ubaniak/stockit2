@@ -1,7 +1,26 @@
-<ul>
-    <li><%= link_to "Daily report", daily_report_path %></li>
-    <li><%= link_to "Stock report", stock_report_path %></li>
-    <li><%= link_to "Stock take cards", stock_take_cards_path %></li>
-    <li><%= link_to "Low stock", low_stock_report_path %></li>
-    <li><%= link_to "Profit and Loss report", profit_and_loss_report_path %></li>
-</ul>
+<div class="row-fluid">
+    <div class="span4">
+        Quick reports
+        <ul>
+            <li><%= link_to "Daily report", daily_report_path %></li>
+            <li><%= link_to "Profit and Loss report", profit_and_loss_report_path %></li>
+            <li><%= link_to "Invoices", invoice_reports_path %></li>
+        </ul>
+    </div>
+    <div class="span4">
+        Stock 
+        <ul>
+            <li><%= link_to "Stock report", stock_report_path %></li>
+            <li><%= link_to "Stock qty change", stock_change_report_path %></li>
+            <li><%= link_to "Low stock", low_stock_report_path %></li>
+            <li><%= link_to "Stock take cards", stock_take_cards_path %></li>
+        </ul>
+    </div>
+    <div class="span4">
+        Range reports
+        <ul>
+            <li><%= link_to "Profit and Loss report", range_profit_and_loss_report_path %></li>
+            <li><%= link_to "Sale", range_sales_report_path %></li>
+        </ul>
+    </div>
+</div>

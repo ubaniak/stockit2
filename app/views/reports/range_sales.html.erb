@@ -1,0 +1,38 @@
+<%= render "reports/datepicker_js" %>
+<h4>Sale report for date period <%= @dates[0] %> to <%= @dates[1] %></h4>
+
+<%= form_tag range_sales_report_path, :method => "GET" do %>
+    <%=  text_field_tag :start_date, @dates[0].strftime("%Y-%m-%d") %>
+    <%=  text_field_tag :end_date, @dates[1].strftime("%Y-%m-%d") %><br>
+    <%= submit_tag "submit" %>
+<% end %>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Account</th>
+      <th>Item</th>
+      <th>qty</th>
+      <th>Sell price</th>
+      <th>Refunded</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sales.each do |sale| %>
+        <tr>
+            <td><%= sale.date.to_s %></td>
+            <td><%= sale.account.name %></td>
+            <% sale.sale_transactions.each do |st| %>
+                    <td><%= st.stock.name %></td>
+                    <td><%= st.qty%></td>
+                    <td><%= st.sell_price %></td>
+                    <td><%= st.refunded %></td>
+                    <td><%= st.qty * st.sell_price %></td>
+            <% end %>
+        </tr>
+    <% end %>
+  </tbody>
+</table>

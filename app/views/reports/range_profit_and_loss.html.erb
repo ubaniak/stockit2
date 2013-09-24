@@ -1,8 +1,11 @@
-<%= link_to "<", :date => @date.yesterday.to_s %>
-<%= @date.strftime("%d %B %Y") %>
-<%= link_to ">", :date => @date.tomorrow.to_s %>
+<%= render "reports/datepicker_js" %>
+<h4>Profit and loss report for date period <%= @dates[0] %> to <%= @dates[1] %></h4>
 
-<h4>Profit and loss for <%= @date %></h4>
+<%= form_tag range_profit_and_loss_report_path, :method => "GET" do %>
+    <%=  text_field_tag :start_date, @dates[0].strftime("%Y-%m-%d") %>
+    <%=  text_field_tag :end_date, @dates[1].strftime("%Y-%m-%d") %><br>
+    <%= submit_tag "submit" %>
+<% end %>
 
 Number of sales: <%= @sales.count %><br>
 Number of refunds: <%= @refunds.count %><br>

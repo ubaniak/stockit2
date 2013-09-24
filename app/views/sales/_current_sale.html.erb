@@ -1,6 +1,11 @@
+<script>
+    $(function () {
+        $("#sale_date").datepicker();
+    });
+</script>
 <%= form_for(@sale) do |f| %>
     <%= f.label :date %>
-    <%= f.date_select :date %>
+    <%= f.text_field :date %>
     <br>
     <%= f.label :account_id %>
     <%= f.select :account_id, options_from_collection_for_select(Account.all, "id", "name") %>

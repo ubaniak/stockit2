@@ -2,6 +2,10 @@ class AccountTransfer < ActiveRecord::Base
     before_save :transfer
     after_destroy :untransfer
 
+    def self.date_range(sd, ed)
+        self.where("date between ? and ?", sd, ed)
+    end
+
     def from_account
         Account.find(self.from)
     end

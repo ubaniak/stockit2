@@ -1,0 +1,14 @@
+<%= render "reports/datepicker_js" %>
+
+<%= form_tag invoice_reports_path, :method => "GET" do %>
+    <%=  text_field_tag :start_date, @dates[0].strftime("%Y-%m-%d") %>
+    <%=  text_field_tag :end_date, @dates[1].strftime("%Y-%m-%d") %><br>
+    <%= submit_tag "submit" %>
+<% end %>
+<br>
+<%= form_tag invoice_reports_path, :method => "GET" do %>
+    <%=  text_field_tag :search %>
+    <%= submit_tag "submit" %>
+<% end %>
+
+<%= render partial: "invoices/list", locals: { invoices: @invoices } %>

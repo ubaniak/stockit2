@@ -10,6 +10,7 @@ Stockit2::Application.routes.draw do
     post "sales" => "sales#new_sale"
     post "invoices" => "invoices#create"
     post "invoice_items" => "invoices#create_invoice_item"
+    post "accounts" => "accounts#create"
 
     # Manage
   get "manage_users" => "manage#users"
@@ -52,6 +53,10 @@ Stockit2::Application.routes.draw do
   get "profit_and_loss_report" => "reports#profit_and_loss"
   get "stock_take_cards" => "reports#stock_take_cards"
   get "low_stock_report" => "reports#low_stock"
+  get "range_profit_and_loss_report" => "reports#range_profit_and_loss"
+  get "range_sales_report" => "reports#range_sales"
+  get "stock_change_report" => "reports#stock_change"
+  get "invoice_reports" => "reports#invoices"
 
     # Users
   get "edit_user" => "users#edit"

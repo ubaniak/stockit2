@@ -2,6 +2,11 @@ class Refund < ActiveRecord::Base
     belongs_to :user
     belongs_to :stock
 
+
+    def self.date_range(sd, ed)
+        self.where("date between ? and ?", sd, ed)
+    end
+
     def self.refund_item(item, user)
 
         refund = self.new
