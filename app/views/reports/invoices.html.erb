@@ -11,4 +11,10 @@
     <%= submit_tag "submit" %>
 <% end %>
 
+<br>
+Download as
+<%= link_to "CSV", invoice_reports_path(format: "csv", :start_date => @dates[0], :end_date => @dates[1], :search => @search) %> | 
+<%= link_to "XLS", invoice_reports_path(format: "xls", :start_date => @dates[0], :end_date => @dates[1], :search => @search) %> | 
+<br>
+
 <%= render partial: "invoices/list", locals: { invoices: @invoices } %>

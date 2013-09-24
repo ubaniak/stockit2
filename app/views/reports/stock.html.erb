@@ -1,3 +1,8 @@
 <h4>Stock report as of <%= Date.today.strftime("%d %B %Y") %></h4>
 
+<br>
+Download as
+<%= link_to "CSV", stock_report_path(format: "csv") %> | 
+<%= link_to "XLS", stock_report_path(format: "xls") %>
+<br>
 <%= render partial: "stock/group_by_catagory" %>

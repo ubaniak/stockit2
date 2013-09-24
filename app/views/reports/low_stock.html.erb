@@ -1,5 +1,11 @@
 <h4>Low Stock report as of <%= Date.today.strftime("%d %B %Y") %></h4>
 
+<br>
+Download as
+<%= link_to "CSV", low_stock_report_path(format: "csv") %> | 
+<%= link_to "XLS", low_stock_report_path(format: "xls") %>
+<br>
+
 <table class="table table-bordered">
     <tr>
         <th>Name</th>

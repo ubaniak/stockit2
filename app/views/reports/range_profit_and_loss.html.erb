@@ -7,6 +7,12 @@
     <%= submit_tag "submit" %>
 <% end %>
 
+<br>
+Download as
+<%= link_to "CSV", range_profit_and_loss_report_path(format: "csv", :start_date => @dates[0], :end_date => @dates[1]) %> | 
+<%= link_to "XLS", range_profit_and_loss_report_path(format: "xls", :start_date => @dates[0], :end_date => @dates[1]) %> | 
+<br>
+
 Number of sales: <%= @sales.count %><br>
 Number of refunds: <%= @refunds.count %><br>
 <br>

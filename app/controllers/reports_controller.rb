@@ -23,6 +23,11 @@ class ReportsController < ApplicationController
 
     def stock 
         @catagories = Catagory.all
+        respond_to do |format|
+            format.html
+            format.csv { render text: cat_stock_to_csv(@catagories) }
+            format.xls { render text: cat_stock_to_csv(@catagories) }
+        end
     end
 
     def profit_and_loss
@@ -72,17 +77,26 @@ class ReportsController < ApplicationController
 
         respond_to do |format|
             format.html
-            format.csv { render text: profit_and_loss_to_csv(@date, @total, @account_types) }
-            format.xls { render text: profit_and_loss_to_csv(@date, @total, @account_types) }
+            format.csv { render text: profit_and_loss_to_csv([@date], @total, @account_types) }
+            format.xls { render text: profit_and_loss_to_csv([@date], @total, @account_types) }
         end
     end
 
     def stock_take_cards
         @catagories = Catagory.all
+        respond_to do |format|
+            format.html
+            format.csv { render text: stock_take_cards_to_csv(@catagories) }
+            format.xls { render text: stock_take_cards_to_csv(@catagories) }
+        end
     end
 
     def low_stock
         @stocks = Stock.low_stocks
+        respond_to do |format|
+            format.html
+            format.csv { render text: stock_to_csv(@stocks) }
+        end
     end
 
     def range_profit_and_loss
@@ -129,16 +143,32 @@ class ReportsController < ApplicationController
             @total[ac.to_account.account_type.name] += ac.amount
             @total[:transfers] += ac.amount
         end
+
+        respond_to do |format|
+            format.html
+            format.csv { render text: profit_and_loss_to_csv(@dates, @total, @account_types) }
+            format.xls { render text: profit_and_loss_to_csv(@dates, @total, @account_types) }
+        end
     end
 
     def range_sales
         @dates = get_date_range
         @sales = Sale.date_range(*@dates)
+        respond_to do |format|
+            format.html
+            format.csv { render text: sales_to_csv(@sales) }
+            format.xls { render text: sales_to_csv(@sales) }
+        end
     end
 
     def stock_change
         @dates = get_date_range
         @change_stock_qty = ChangeStockQty.date_range(*@dates)
+        respond_to do |format|
+            format.html
+            format.csv { render text: change_stock_qty_to_csv(@change_stock_qty) }
+            format.xls { render text: change_stock_qty_to_csv(@change_stock_qty) }
+        end
     end
 
     def invoices
@@ -148,6 +178,12 @@ class ReportsController < ApplicationController
             @invoices = Invoice.search(params[:search])
         else
             @invoices = Invoice.date_range(*@dates)
+        end
+
+        respond_to do |format|
+            format.html
+            format.csv { render text: invoice_to_csv(@invoices) }
+            format.xls { render text: invoice_to_csv(@invoices) }
         end
     end
 

@@ -1,19 +1,5 @@
-<% @catagories.each do |catagory| %>
-<table class="table table-bordered">
-    <tr>
-        <th>Name</th>
-        <th>Catagory</th>
-        <th>Qty</th>
-    </tr>
-
-    <% catagory.stocks.each do |stock| %>
-        <tr>
-            <td><%= stock.name %></td>
-            <td><%= stock.catagory.name %></td>
-            <td></td>
-        </tr>
-    <% end %>
-
-</table>
-
-<% end %>
+<br>
+Download as
+<%= link_to "CSV", stock_take_cards_path(format: "csv") %> | 
+<%= link_to "XLS", stock_take_cards_path(format: "xls") %>
+<br>
